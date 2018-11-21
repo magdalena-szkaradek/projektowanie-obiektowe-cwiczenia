@@ -1,40 +1,22 @@
 package wzorce.decorator;
 
-import java.util.Objects;
-
-public class Owoce extends CiastoDekorator{
-    Ciasto ciasto;
-    Tort tort;
+public class Owoce extends CiastoDekorator {
+    CiastoBaza ciasto;
     private String nazwaDodatku = "Owoce";
     private Integer cenaZaTort = 20;
     private Integer cenaZaCiasto = 10;
-    private boolean czyTort = false;
 
-    Owoce(Ciasto ciasto){
+    Owoce(CiastoBaza ciasto) {
+        super();
         this.ciasto = ciasto;
-    }
-
-    Owoce(Tort tort){
-        this.tort = tort;
-    }
-
-
-    public void dodajOwoce(Class className){
-        if(Objects.equals(className, CiastoBaza.class)){
-            czyTort = false;
-            ciasto.cenaCalkowita += cenaZaCiasto;
-        }else {
-            czyTort = true;
-            tort.cenaCalkowita += cenaZaTort;
+        if (ciasto instanceof Tort) {
+            this.ciasto.cenaCalkowita += cenaZaTort;
+        } else {
+            this.ciasto.cenaCalkowita += cenaZaCiasto;
         }
     }
 
-    public String opisz(){
-        if(czyTort){
-            return tort.opisz() + " dodatek: " + nazwaDodatku;
-        }
-        else{
-            return ciasto.opisz() + " dodatek: " + nazwaDodatku;
-        }
+    public String opisz() {
+        return ciasto.opisz() + " dodatek: " + nazwaDodatku;
     }
 }
