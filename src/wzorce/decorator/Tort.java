@@ -1,14 +1,14 @@
 package wzorce.decorator;
 
-public class Tort extends CiastoBaza {
-    String kategoria = "Tort";
 
-    public Tort() {
-        cenaBazowa = 50;
-        cenaCalkowita = cenaBazowa;
+public class Tort extends Baza{
+
+    public Tort(){
+        description = "Tort podstawowy";
     }
 
-    String opisz() {
-        return "Nazwa: " + this.kategoria + " Cena bazowa: " + cenaBazowa + " Cena calkowita: " + cenaCalkowita;
+    @Override
+    public double price(){
+        return 20.00;
     }
 }

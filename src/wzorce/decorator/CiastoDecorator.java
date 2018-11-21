@@ -1,4 +1,4 @@
-package wzorce;
+package wzorce.decorator;
 
 
 public abstract class CiastoDecorator extends Baza{

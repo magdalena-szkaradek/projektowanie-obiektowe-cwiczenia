@@ -1,4 +1,4 @@
-package wzorce;
+package wzorce.decorator;
 
 public abstract class Baza {
     protected String description;

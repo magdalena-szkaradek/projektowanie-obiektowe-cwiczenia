@@ -1,6 +1,6 @@
-package wzorce;
+package wzorce.decorator;
 
-public class OrzechyDecorator extends CiastoDecorator {
+public class PolewaDecorator extends CiastoDecorator {
     Double cenaZaTort = 15.00;
     Double cenaZaBabeczke = 2.00;
     Double cenaZaCiasto = 10.00;
@@ -8,7 +8,7 @@ public class OrzechyDecorator extends CiastoDecorator {
     boolean czyTort = false;
     boolean czyBabeczka = false;
 
-    public OrzechyDecorator(Baza baza){
+    public PolewaDecorator(Baza baza){
         super(baza);
         if(baza instanceof Tort){
             this.czyTort = true;
@@ -19,7 +19,7 @@ public class OrzechyDecorator extends CiastoDecorator {
 
     @Override
     public String getDescription(){
-        return baza.getDescription() + ", orzechy";
+        return baza.getDescription() + ", polewa";
     }
 
     @Override
