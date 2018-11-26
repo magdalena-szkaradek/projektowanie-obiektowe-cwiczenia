@@ -1,12 +1,17 @@
 package wzorce.decorator;
 
 public class Babeczka extends Baza{
-    public Babeczka(){
-        description = "Babeczka podstawowa";
+    Babeczka(){
+        opis = "Babeczka podstawowa";
     }
 
     @Override
-    public double price(){
+    public double liczCene(){
         return 5.00;
+    }
+
+    @Override
+    public String pobierzBaze() {
+        return "Babeczka";
     }
 }

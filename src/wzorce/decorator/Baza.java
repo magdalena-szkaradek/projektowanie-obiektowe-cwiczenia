@@ -1,16 +1,18 @@
 package wzorce.decorator;
 
 public abstract class Baza {
-    protected String description;
+    String opis;
 
-    public abstract double price();
+    public abstract double liczCene();
 
-    public String getDescription(){
-        return description;
+    public abstract String pobierzBaze();
+
+    public String pobierzOpis(){
+        return opis;
     }
 
     @Override
     public String toString(){
-        return price() + "(" + getDescription() + ")";
+        return liczCene() + "(" + pobierzOpis() + ")";
     }
 }

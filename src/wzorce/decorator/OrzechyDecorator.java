@@ -1,34 +1,41 @@
 package wzorce.decorator;
 
 public class OrzechyDecorator extends CiastoDecorator {
-    Double cenaZaTort = 15.00;
-    Double cenaZaBabeczke = 2.00;
-    Double cenaZaCiasto = 10.00;
+    private static final Double CENA_ZA_TORT = 15.00;
+    private static final Double CENA_ZA_BABECZKE = 2.00;
+    private static final Double CENA_ZA_CIASTO = 10.00;
 
-    boolean czyTort = false;
-    boolean czyBabeczka = false;
+    private final boolean czyTort;
+    private final boolean czyBabeczka;
 
-    public OrzechyDecorator(Baza baza){
+    private final Baza baza;
+
+    OrzechyDecorator(Baza baza){
         super(baza);
-        if(baza instanceof Tort){
-            this.czyTort = true;
-        }else if(baza instanceof Babeczka){
-            this.czyBabeczka = true;
-        }
+        this.baza = baza;
+        this.czyTort = pobierzBaze().equals("Tort");
+        this.czyBabeczka = pobierzBaze().equals("Babeczka");
+
     }
 
     @Override
-    public String getDescription(){
-        return baza.getDescription() + ", orzechy";
+    public String pobierzBaze() {
+        return baza.pobierzBaze();
     }
 
     @Override
-    public double price(){
+    public String pobierzOpis(){
+        return baza.pobierzOpis() + ", orzechy";
+    }
+
+    @Override
+    public double liczCene(){
         if(czyTort){
-            return baza.price() + cenaZaTort;
+            return baza.liczCene() + CENA_ZA_TORT;
         }else if(czyBabeczka){
-            return baza.price() + cenaZaBabeczke;
+            return baza.liczCene() + CENA_ZA_BABECZKE;
         }
-        return baza.price() + cenaZaCiasto;
+        return baza.liczCene() + CENA_ZA_CIASTO;
     }
+
 }
