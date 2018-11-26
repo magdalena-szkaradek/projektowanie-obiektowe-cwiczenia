@@ -3,6 +3,7 @@ package wzorce.decorator;
 public class Main {
 
     public static void main(String[] args) {
+
         Baza baza;
         baza = new Tort();
         baza = new OrzechyDecorator(baza);

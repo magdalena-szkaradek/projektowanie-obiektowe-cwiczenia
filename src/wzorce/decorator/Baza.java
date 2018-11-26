@@ -7,12 +7,12 @@ public abstract class Baza {
 
     public abstract String pobierzBaze();
 
-    public String pobierzOpis(){
+    public String pobierzOpis() {
         return opis;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return liczCene() + "(" + pobierzOpis() + ")";
     }
 }

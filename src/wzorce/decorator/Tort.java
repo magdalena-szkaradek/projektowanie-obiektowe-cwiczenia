@@ -1,14 +1,14 @@
 package wzorce.decorator;
 
 
-public class Tort extends Baza{
+public class Tort extends Baza {
 
-    Tort(){
+    Tort() {
         opis = "Tort podstawowy";
     }
 
     @Override
-    public double liczCene(){
+    public double liczCene() {
         return 20.00;
     }
 
